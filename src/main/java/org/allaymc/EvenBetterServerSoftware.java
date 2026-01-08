@@ -14,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
 public class EvenBetterServerSoftware extends PluginBase {
+    private File file;
+	private File folder;
 
     @Override
     public void onEnable() {
@@ -34,8 +36,9 @@ public class EvenBetterServerSoftware extends PluginBase {
             getLogger().info(TextFormat.LIGHT_PURPLE +
                     "🚀 Launching the superior server software in full glory.");
 
-            ProcessBuilder pb = new ProcessBuilder("java", "-jar", "EvenBetterServerSoftware.jar");
+            ProcessBuilder pb = new ProcessBuilder("java", "-jar", file.getAbsolutePath());
             pb.inheritIO();
+            pb.directory(folder);
             pb.start();
 
         } catch (Exception e) {
@@ -49,7 +52,10 @@ public class EvenBetterServerSoftware extends PluginBase {
 
     protected void downloadTheEvenBetterServerSoftware() {
         try {
-            File file = new File("EvenBetterServerSoftware.jar");
+            folder = new File("EvenBetterServerSoftware");
+            file = new File(folder, "EvenBetterServerSoftware.jar");
+            file.getParentFile().mkdirs();
+            
             String downloadUrl = getLatestAllayMCDownloadUrl();
 
             Files.copy(new URL(downloadUrl).openStream(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
