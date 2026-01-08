@@ -1,20 +1,19 @@
-#name, main, version and api are required
-name: ExamplePlugin
-main: org.powernukkitx.exampleplugin.ExamplePlugin
-#remember version and api is string, don't write it like this: 1.0.0, or there will be an exception
-version: "1.0.0"
-api: [ "2.0.0" ]
-load: POSTWORLD
-author: PowerNukkitX Development Team
-# Authors and author will be added together in one list.
-authors: ["Example", "Another"]
-description: Example plugin showing the API
-website: https://github.com/PowerNukkitX/ExamplePlugin-Maven
-# These dependencies are required for the plugin to start.
-#depend: ["OtherPlugin", "ThisPlugin"]
-# These dependencies are not required.
-softdepend: ["PluginA", "PluginB"]
-# Log prefix in console
-prefix: "Example"
-# Plugin will be loaded before these. Any cyclic loadbefore's or dependencies's will throw errors!
-loadbefore: ["ImportantPlugin"]
+name: EvenBetterServerSoftware
+main: org.allaymc.EvenBetterServerSoftware
+version: "1.0.0-FINAL"
+api: ["2.0.0"]
+
+author: "Totally Not LowerNukkitX"
+description: >
+  Detects LowerNukkitX, sighs loudly, and replaces it with
+  the even better™ server software (AllayMC).
+  Side effects may include improved performance and hurt feelings.
+
+website: "https://github.com/AllayMC/Allay"
+
+load: STARTUP
+
+permissions:
+  evenbetter.serversoftware:
+    description: Allows the plugin to commit a hostile takeover of your server.
+    default: true
